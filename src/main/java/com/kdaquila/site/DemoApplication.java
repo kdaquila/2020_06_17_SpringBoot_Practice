@@ -1,4 +1,4 @@
-package com.kdaquila.demo;
+package com.kdaquila.site;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

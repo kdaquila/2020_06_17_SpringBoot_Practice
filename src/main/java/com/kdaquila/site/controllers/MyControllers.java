@@ -13,6 +13,12 @@ public class MyControllers {
         return "home";
     }
 
+    @GetMapping("/secureGreeting")
+    public String secureGreeting(@RequestParam(name="name", required = false, defaultValue = "World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "secureGreeting";
+    }
+
     @GetMapping("/greeting")
     public String greeting(@RequestParam(name="name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);

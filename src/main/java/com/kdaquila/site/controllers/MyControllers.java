@@ -26,4 +26,8 @@ public class MyControllers {
     }
 
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 }

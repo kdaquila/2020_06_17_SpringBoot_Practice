@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MyControllers {
 
     @GetMapping("/")
-    public String greeting() {
+    public String home(@RequestParam(name="logout", required = false, defaultValue = "false") String logout, Model model) {
+        model.addAttribute("logout", logout);
         return "home";
     }
 
@@ -24,7 +25,6 @@ public class MyControllers {
         model.addAttribute("name", name);
         return "greeting";
     }
-
 
     @GetMapping("/login")
     public String login() {

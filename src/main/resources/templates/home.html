@@ -9,6 +9,9 @@
 </head>
 <body>
     <h1>Welcome!</h1>
+    <div th:if="${logout}">
+        You have been logged out.
+    </div>
     <p>Click <a th:href="@{/greeting}">here</a> to see a greeting.</p>
     <p>Click <a th:href="@{/secureGreeting}">here</a> to login for a secure greeting.</p>
 </body>

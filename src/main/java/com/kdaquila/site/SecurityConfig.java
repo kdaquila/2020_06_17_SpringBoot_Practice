@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/", "/greeting", "/user/add", "/user/all")
+            .antMatchers("/", "/greeting", "/user/add", "/user/all", "/movie/**")
             .permitAll()
             .anyRequest()
             .authenticated()
@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .logoutSuccessUrl("/?logout=true")
             .permitAll()
         .and()
-            .csrf().ignoringAntMatchers("/user/add");
+            .csrf().ignoringAntMatchers("/user/add", "/movie/**");
     }
 
     @Bean

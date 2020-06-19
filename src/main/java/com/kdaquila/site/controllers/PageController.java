@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class MyControllers {
+public class PageController {
 
     @GetMapping("/")
     public String home(@RequestParam(name="logout", required = false, defaultValue = "false") String logout, Model model) {

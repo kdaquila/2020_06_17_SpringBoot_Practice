@@ -2,7 +2,6 @@ package com.kdaquila.site;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Role;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -17,17 +16,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .antMatchers("/", "/greeting").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/?logout=true")
-                .permitAll();
+            .authorizeRequests()
+            .antMatchers("/", "/greeting", "/user/add", "/user/all")
+            .permitAll()
+            .anyRequest()
+            .authenticated()
+        .and()
+            .formLogin()
+            .loginPage("/login")
+            .permitAll()
+        .and()
+            .logout()
+            .logoutSuccessUrl("/?logout=true")
+            .permitAll()
+        .and()
+            .csrf().ignoringAntMatchers("/user/add");
     }
 
     @Bean

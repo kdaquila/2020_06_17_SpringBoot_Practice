@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/movie")
 public class MovieController {
 
-    @Autowired
     private MovieRepository movieRepository;
+
+    public MovieController(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
 
     @PostMapping("/create")
     public @ResponseBody String create(@RequestParam String title,

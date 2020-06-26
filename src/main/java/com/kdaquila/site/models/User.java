@@ -1,7 +1,5 @@
 package com.kdaquila.site.models;
 
-import org.springframework.data.relational.core.mapping.Table;
-
 import javax.persistence.*;
 
 @Entity
